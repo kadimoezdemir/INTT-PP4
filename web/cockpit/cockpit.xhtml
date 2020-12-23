@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/cockpittemplate.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.AllgoldTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h1>Allgold Premium Molkerei</h1>
+            <br/>
+            <h:form>
+                <p:growl id="growl" showDetail="true" />
+                <h:panelGrid columns="2" columnClasses="left,right" style="width: 100%">
+                    <p:chart type="pie" model="#{chartView.pieModel}" style="width: 380px; height: 300px"/>
+                    <p:chart type="line" model="#{chartView.animatedModel}" style="width: 380px; height: 300px"/>
+                </h:panelGrid>
+                <p:chart type="bar" model="#{chartView.barModel}" style="width: 750px; height: 300px"/>
+            </h:form>
+            <h:form>
+                <h:link outcome="/index" value="#{bundle.ViewStationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
